@@ -1,109 +1,108 @@
-# Project Title
-Random Movie Picker
+### Project Title
 
-## Overview
+Simple Gym Todo List Tracker
 
-The Random Movie Picker is a fast, no-fuss app that helps you pick a movie when you're feeling indecisive. With just a tap, the app generates a random movie from a cool, curated list of must-watch films. Whether you're solo or with friends, you'll have your next movie night sorted in seconds.
+### Overview
+
+The Gym Todo List Tracker is a streamlined app that helps fitness enthusiasts plan and complete their workouts effectively. It allows users to create workout-specific todo lists, break them into micro-goals (sets), and track their progress in real time. The app is designed to helping users accomplish their daily workout routine easily by breaking it down into smaller goals, which allows them to keep motivated during the workout.
 
 ### Problem Space
 
-Scrolling endlessly through streaming platforms can be exhausting, and decision fatigue is real. Random Movie Picker simplifies the process by suggesting a movie instantly, cutting down on wasted time and indecisiveness.
+In the current market, workout apps for gym goers are overwhelming and packed with lots of details, which can be overwhelming before even starting workout, and many people struggle with  goal tracking. Traditional tools lack the granularity to manage workout specifics like sets. This app solves this by enabling users to organize workouts effectively, with an intuitive way to track and mark off progress.
 
 ### User Profile
 
-Target Users:
-Gen Z movie lovers who enjoy spontaneous movie recommendations.
-Groups of friends looking for quick movie night picks.
-Solo viewers who want a surprise movie without overthinking.
+**Target Users:**
 
-User Flow:
-Users open the app, hit "Surprise Me," and instantly receive a movie suggestion.
-Swipe for new suggestions or save favorites for later viewing.
+- Fitness enthusiasts looking for a simple tool to plan and track workouts.
+- Beginners who need structured guidance to stay on track.
+- Advanced gym-goers who want to break down routines into measurable goals.
 
-Considerations:
-Must be mobile-friendly for on-the-go use.
-Social sharing features to appeal to Gen Z habits.
+**User Flow:**
+
+1. Users select a workout type on the landing page: Lower Body, Upper Body, or Full Body.
+2. Add specific workout todo lists (e.g., "Squats", “Leg curls”).
+3. Add sets (micro-goals) to each todo list.
+4. Mark sets as done during the workout; todo list is automatically marked complete once all sets are done.
+
+**Considerations:**
+
+- Must display the current date and time (updated in real-time, no seconds).
+- A clean, mobile-friendly UI to allow quick interactions in gym environments.
 
 ### Features
 
-Random Movie Generator: Users tap a button to get a random movie suggestion.
-Swipe for More: Swipe left or right for new movie options if the first suggestion doesn’t fit the vibe.
-Movie Details: Each movie card shows essential info—title, genre, release year, and description.
-Save to Favorites: Users can save movies they love for future reference.
-Shareable Links: Easily share movie picks on social media with one tap.
+**Landing Page:**
 
-## Implementation
+- Three prominent buttons for workout types: Lower Body, Upper Body, Full Body.
 
-### Tech Stack
+**Todo List Management:**
 
-Frontend: React (React Hooks), TailwindCSS for styling, Framer Motion for animations.
-Backend (Optional): Node.js with Express (if saving user data or favorites).
-Libraries: Axios (data fetching), React Router (for potential navigation).
+- Add new gym workout lists with customizable titles.
+- Add sets to each list, including the number of reps or notes.
+- Automatically mark the workout as done once all sets are completed, which forces user to finish micro-goals first.
 
-### APIs
+**Real-Time Clock:**
 
-OMDb API: Fetches movie data including titles, genres, release years, descriptions, and ratings.
-IMDb-API:	API for receiving movie, serial and cast information
+- Display the current date and time prominently at the top of the app (no seconds).
 
-### Sitemap
+**Progress Tracker:**
 
-Home Page: Main screen with "Surprise Me" button and random movie display.
-Movie Details Page (Optional): Expanded view for in-depth information on selected movies.
-Favorites Page: Saved movies that users can revisit.
+- Visual indicators for completed sets and workouts.
+
+**Additional Features (Stretch goals):**
+
+- Option to add their name to personalize the experience e.g. Welcome Kaley!
+- Option to save completed workouts for historical tracking.
+- Integration with fitness APIs for motivational quote or music e.g. Spotify API
+
+### Implementation
+
+**Tech Stack**
+
+- **Frontend:** React , CSS for styling.
+- Data persists locally until user refreshes the page. It will use users browser’s local storage or Session storage
+
+**Sitemap**
+
+1. **Landing Page:** Users select Lower Body, Upper Body, or Full Body.
+2. **Workout Tracker Page:** Users create and track gym todo lists and sets.
 
 ### Mockups
 
-https://www.figma.com/board/Iu6RCDT64vpycPzWX8K0Jo/Untitled?node-id=0-1&t=KdBiLnRdjQ0yjphM-1
+**Landing Page:**
 
-Wireframes will show:
+- Three buttons with engaging graphics for Lower Body, Upper Body, Full Body.
 
-A clean home screen with a prominent "Surprise Me" button.
-A simple movie card layout for random selections.
-A grid or list layout for saved favorites.
+**Workout Tracker:**
 
-### Data
+- Real-time date and time at the top.
+- Add/mark/delete workout lists and sets with a progress bar for visual tracking.
 
-  {
-    "id": 2,
-    "title": "Dune",
-    "genre": "Sci-Fi, Adventure",
-    "releaseYear": 2021,
-    "description": "A young man must travel to the most dangerous planet to secure his family's future."
-  }
+### Roadmap
 
-### Endpoints
+### **Week of  6th Jan**
 
-If backend is implemented:
+- Create workout and sets management logic.
+- Initialize React app and set up core components.
+- Style the app using SCSS.
+- Implement landing page with buttons for workout types.
+- Add the real-time date and time display.
 
-GET /movies/random – Returns a random movie from the list.
-GET /movies/{id} – Fetches details about a specific movie.
-POST /favorites – Saves selected movies to user favorites.
-GET /favorites – Retrieves all user-saved favorites.
+### **Week of 13th Jan – Testing & Optimization**
 
-## Roadmap
-(including winter break)
-Week 1 – Setup & Core Features
-Initialize React app, set up components, and integrate the OMDb API.
-Implement random movie generator functionality.
+- Add automatic "done" marking for completed lists.
+- Optimize user experience and polish UI.
 
-Week 2 – Design & Data
-Create wireframes and design the homepage.
-Integrate movie details from the API.
+### **Week of 20th Jan – Testing & Optimization**
 
-Week 3 – Swipe & Save Features
-Implement swipe feature for new suggestions.
-Develop the favorites list and save functionality.
+- Test across devices for responsiveness.
+- Code freeze & Prepare presentation.
 
-Week 4 – Testing & Optimization
-Test app across devices for responsiveness.
-Add social sharing features and polish UI/UX.
-Final bug fixes and performance optimization.
+### Future Implementations
 
+- **Workout History:** Save and view past workout records.
+- **Social Features:** Share completed workouts with friends.
+- **Fitness Suggestions:** Pre-loaded workout templates for different fitness levels.
 
-## Future Implementations
-
-Dark Mode: A toggle for light/dark mode based on user preference.
-Multiplayer Movie Picker: Users can sync up with friends to randomly select a movie together.
-Genre Filters: Let users narrow random selections by genre (e.g., horror, comedy, drama).
-Streaming Availability: Link directly to platforms where the movie is available to watch.
-
+Mockups or wireframes for landing page and tracker page can be created in Figma upon request.
