@@ -1,13 +1,15 @@
 import './App.css'
+import TodoWrapper from './components/TodoWrapper.jsx'
 
 function App() {
-å
 
   return (
-    <>
-    
-    </>
+
+      <div className='app'>
+        <TodoWrapper />
+      </div>
+
   )
 }
 
-export default App
+export default App;
