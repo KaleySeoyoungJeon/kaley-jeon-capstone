@@ -1,5 +1,5 @@
 import './App.css'
-import TodoWrapper from './components/TodoWrapper.jsx'
+import TodoWrapper from './components/TodoWrapper/TodoWrapper.jsx'
 
 function App() {
 

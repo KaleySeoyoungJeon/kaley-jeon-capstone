@@ -1,0 +1,39 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.popup {
+    background-color: $white;
+    backdrop-filter: blur($blur-radius);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    &__wrapper {
+        @include flex (flex, column, flex-start, center);
+    }
+    &__btn-edit {
+        @include flex (flex, row, flex-start, center);
+        color: $primary-font;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    &__btn-delete {
+        @include flex (flex, row, flex-start, center);
+        color: $state-red;
+        gap: 1rem;
+        padding: 1rem;
+    }
+}
+
+.edit-icon,
+.delete-icon {
+    width: 24px;
+    height: 24px;
+}
+

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import TodoForm from './TodoForm.jsx';
-import Todo from './Todo.jsx';
-import EditTodo from './EditTodoForm.jsx';
+import TodoForm from '../TodoForm/TodoForm.jsx';
+import Todo from '../Todo/Todo.jsx';
+import EditTodo from '../EditTodo/EditTodoForm.jsx';
+import './TodoWrapper.scss';
 uuidv4();
 
 function TodoWrapper() {
@@ -28,6 +29,24 @@ function TodoWrapper() {
     const editTask = (task, id) => {
         setTodos(todos.map(todo => todo.id === id ? {...todo, task, isEditing: !todo.isEditing} : todo))
     }
+
+    const completeSet = (id, setIndex) => {
+        setTodos(todos.map((todo) => {
+            if (todo.id === id) {
+                const updateSets = [...todo.sets];
+                updatedSets [setIndex] = true;
+
+                const isAllSetsCompleted = updatedSets.every((set) => set);
+
+                return {
+                    ...todo,
+                    sets: updateSets,
+                    completed: isAllSetsCompleted,
+                };
+            }
+            return todo;
+        }))
+    };
 
     return (
         <div className='TodoWrapper'>

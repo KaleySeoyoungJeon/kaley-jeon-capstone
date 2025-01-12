@@ -1,0 +1,29 @@
+@use "../../styles/variables" as *;
+
+.TodoForm {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.todo-input {
+    outline: none;
+    background: none;
+    border: 1px solid #5082FF;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 300px;
+    color: #5082FF;
+}
+
+.todo-input::placeholder {
+    color: #5082FF;
+}
+
+.todo-btn {
+    background: #5082FF;
+    color: #fff;
+    border: none;
+    padding: 0.55rem;
+    cursor: pointer;
+}

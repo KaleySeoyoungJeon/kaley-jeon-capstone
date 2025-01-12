@@ -1,0 +1,8 @@
+@use "../../styles/variables" as *;
+
+.TodoWrapper {
+    background: $white;
+    margin-top: 5rem;
+    padding: 2rem;
+    border-radius: 5px;
+}
