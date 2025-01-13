@@ -1,4 +1,4 @@
-
+import './SetTracker.scss';
 
 function SetTracker ({ sets, completeSet, taskId }) {
 
@@ -7,7 +7,7 @@ function SetTracker ({ sets, completeSet, taskId }) {
             {sets.map((set, index) => (
                 <button
                     key={index}
-                    classname={`set-button ${set ? 'completed' : ''}`}
+                    className={`set-button ${set ? 'completed' : ''}`}
                     onClick={() => completeSet(taskId, index)}
                     disabled={!set && index > 0 && !sets[index -1]}
                 >

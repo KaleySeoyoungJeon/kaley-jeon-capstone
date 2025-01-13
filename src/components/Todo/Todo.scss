@@ -1,29 +1,56 @@
 @use "../../styles/variables" as *;
+@use '../../styles/mixins' as *;
 
 .todo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #EDEDED;
+    @include flex (flex, column, space-between, center);
+    background: $background-list;
     color: #fff;
-    padding: 0.75rem 1rem;
-    border-radius: 5px;
     margin-bottom: 1rem;
+    width: 100%;
+    border-radius: 12px;
+
+    &__top {
+        @include flex (flex, row, space-between, center);
+        padding: 8px 16px;
+        border-bottom: 1px solid $coolgrey;
+        width: 100%;
+        height: 3rem;
+    }
+    &__bottom {
+        padding: 16px 8px;
+        width: 100%;
+        height: 3rem;
+        @include flex (flex, row, space-between, flex-start);
+    }
+    &--text {
+        font-size: 1.125rem;
+        color: $font-darkBlack;
+    }
 }
 
 .incompleted {
-    color: #fff;
+    color: $background-list;
     cursor: pointer;
 }
 
 .completed {
-    color: #5082FF;
+    color: $font-bleuGrey;
     text-decoration: line-through;
     cursor: pointer;
 }
 
-.edit-btn,
-.delete-icon {
-    cursor: pointer;
+.menu-btn {
+    border: none;
+    width: 32px;
+    height: 32px;
+    &:focus {
+        border-radius: 333px;
+        background-color: #CCD5ED;
+        opacity: .6;
+    }
 }
 
+img.menu-icon {
+    width: 32px;
+    height: 32px;
+}

@@ -1,8 +1,11 @@
-@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use '../../styles/variables' as *;
 
-.TodoWrapper {
-    background: $white;
-    margin-top: 5rem;
-    padding: 2rem;
-    border-radius: 5px;
+.TodoWrapper {    
+    @include flex (flex, column, space-between, flex-start);
+    width: 393px;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: $box-shadow; 
+    border: .5px solid $warmgrey;
 }

@@ -9,19 +9,22 @@
     outline: none;
     background: none;
     border: 1px solid #5082FF;
+    border-radius: 4px;
     padding: 0.5rem 1rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
-    width: 300px;
+    width: 280px;
     color: #5082FF;
+    margin-right: 1rem;
 }
 
 .todo-input::placeholder {
-    color: #5082FF;
+    color: $font-placeholder;
 }
 
 .todo-btn {
     background: #5082FF;
+    border-radius: 4px;
     color: #fff;
     border: none;
     padding: 0.55rem;
