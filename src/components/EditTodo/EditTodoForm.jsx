@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-function EditTodo({ editTodo, task}) {
+function EditTodo({ editTodo, task }) {
 
     const [value, setValue] = useState(task.task);
 

@@ -19,7 +19,7 @@
     &__menu {
         @include flex (flex, row, space-between, center);
         width: 100%;
-        padding: 1rem;
+        padding: .5rem 1rem;
         gap: 2rem;
     }
 

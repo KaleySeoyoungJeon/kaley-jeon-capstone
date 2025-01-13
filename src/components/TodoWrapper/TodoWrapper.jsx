@@ -64,7 +64,7 @@ function TodoWrapper() {
 
     return (
         <div className='TodoWrapper'>
-            <h3 className='target'>Targeting 'Full Body' today</h3> 
+            <h3 className='target'>Add your workout.</h3> 
             <TodoForm addTodo={addTodo}/>
             {todos.map((todo) => (
                 todo.isEditing ? (

@@ -1,0 +1,28 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.error-notification {
+    @include flex (flex, row, flex-start, center);
+    background-color: $state-red-background;
+    border-radius: 4px;
+    padding: 8px 12px;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+
+    &--icon {
+        border-radius: 333px;
+        width: 14px;
+        height: 14px;
+        background-color: $state-red;
+    }
+    &--mark {
+        color: $white;
+        font-size: 12px;
+    }
+    &--text {
+        color: $state-red;
+        font-size: 12px;
+    }
+}
