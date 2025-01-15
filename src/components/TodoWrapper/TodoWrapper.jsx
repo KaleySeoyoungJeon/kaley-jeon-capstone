@@ -12,11 +12,13 @@ function TodoWrapper() {
     const [todos, setTodos] = useState([]);
 
     const addTodo = (todo) => { 
-        setTodos([...todos, 
+        const setCount = data.chosenSet || 1;
+        setTodos((prev) => [
             {
                 id: uuidv4(),
                 task: todo.workout,
-                sets: Array(todo.chosenSet).fill(false),
+                sets: Array(setCount).fill(false),
+                setStack: [],
                 completed: false, 
                 isEditing:false,
             },
@@ -25,8 +27,9 @@ function TodoWrapper() {
     };
 
     const toggleComplete = (id) => {
-        setTodos((todos) => todos.map((todo) => 
-            todo.id === id ? {...todo, completed: !todo.completed} : todo));
+        setTodos((prev) => 
+            prev.map((todo) => 
+                todo.id === id ? {...todo, completed: !todo.completed} : todo));
     };
 
     const deleteTodo = (id) => {
@@ -34,10 +37,9 @@ function TodoWrapper() {
     };
 
     const editTodo = (id) => {
-        setTodos(
-            (prev) =>
-                prev.map((todo) =>
-            todo.id === id ? {...todo, isEditing: !todo.isEditing } : todo)
+        setTodos((prev) =>
+            prev.map((todo) =>
+                todo.id === id ? {...todo, isEditing: !todo.isEditing } : todo)
         );
     };
 
@@ -48,26 +50,38 @@ function TodoWrapper() {
         );
     };
 
-
-    const completeSet = (id, setIndex) => {
-        setTodos((prevTodos) => {
-            prevTodos.map((todo) => {
+    // lIFO forward/backward logic
+    const completeSet = (todoId, setIndex) => {
+        setTodos((prev) => 
+            prev.map((todo) => {
                 if (todo.id !== id) return todo;
+                
+                const newSets = [...todo.sets];
+                const newStack = [...todo.setStack];
 
-                const updatedSets = [...todo.sets];
-                updatedSets[setIndex] = !updatedSets[setIndex];
+                if (!newSets[setIndex]) {
+                    newSets[setIndex] = true;
+                    newStack.push(setIndex);
+                } else {
+                    const top = newStack[newStack.length - 1];
+                    if (top === setIndex) {
+                        newSets[setIndex] = false;
+                        newStack.pop();
+                    }
+                }
 
-                const isCompleted = updatedSets.every((val) => val === true);
+                const allOn = newSets.every((val) => val === true);
 
                 return {
                     ...todo,
-                    sets: updatedSets,
-                    completed: isCompleted,
-                }
+                    sets: newSets,
+                    setStack: newStack,
+                    completed: allOn,
+                };
             })
-        })
-        
+        );
     };
+
 
     return (
         <div className='TodoWrapper'>

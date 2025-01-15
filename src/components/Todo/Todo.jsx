@@ -9,7 +9,6 @@ import capstone_menu_icon from '../../assets/icons/capstone_menu_icon.png'
 function Todo({ task, toggleComplete, deleteTodo, editTodo, completeSet }) {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
     const containerRef = useRef(null);
 
     const openMenu = () => setIsMenuOpen(true);
