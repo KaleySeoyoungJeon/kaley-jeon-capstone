@@ -11,14 +11,15 @@ function TodoWrapper() {
 
     const [todos, setTodos] = useState([]);
 
-    const addTodo = (todo) => {
+    const addTodo = (todo) => { 
         setTodos([...todos, 
             {
                 id: uuidv4(),
-                task: todo, 
+                task: todo.workout, //refer to todoForm.jsx
                 completed: false, 
                 isEditing:false,
-                sets: [false, false, false], // adding this to each new todo to track
+                chosenSet: todo.chosenSet,
+                completed: false,
             },
         ]);
     };
@@ -44,22 +45,22 @@ function TodoWrapper() {
     };
 
     const completeSet = (id, setIndex) => {
-        setTodos(
-            todos.map((todo) => {
-            if (todo.id === id) {
-                const updatedSets = [...todo.sets];
-                updatedSets [setIndex] = true;
+        setTodos((prevTodos) => {
+            prevTodos.map((todo) => {
+                if (todo.id !== id) return todo;
 
-                const isAllSetsCompleted = updatedSets.every((val) => val);
+                const updatedSets = [...todo.sets];
+                updatedSets[setIndex] = !updatedSets[setIndex];
+
+                const isCompleted = updatedSets.every((val) => (val));
 
                 return {
                     ...todo,
                     sets: updatedSets,
-                    completed: isAllSetsCompleted,
-                };
-            }
-            return todo;
-        }));
+                    completed: isCompleted,
+                }
+            })
+        })
     };
 
     return (
