@@ -58,11 +58,14 @@ function Todo({ task, toggleComplete, deleteTodo, editTodo, completeSet }) {
                 </Popover>
             </div>
             <div className="todo__bottom">
-                <SetTracker
+                {task.sets && task.sets.length > 0 && (
+                    <SetTracker
+                    todoId={task.id}
                     sets={task.sets}
-                    completeSet={completeSet}
-                    taskId={task.id}
-                />
+                    setStack={task.setStack}
+                    onToggleSet={completeSet}
+                    />
+                )}
             </div>
         </div>
     )
