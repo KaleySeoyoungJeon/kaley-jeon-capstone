@@ -15,19 +15,18 @@ function TodoWrapper() {
         setTodos([...todos, 
             {
                 id: uuidv4(),
-                task: todo.workout, //refer to todoForm.jsx
+                task: todo.workout,
+                sets: Array(todo.chosenSet).fill(false),
                 completed: false, 
                 isEditing:false,
-                chosenSet: todo.chosenSet,
-                completed: false,
             },
+            ...prev,
         ]);
     };
 
     const toggleComplete = (id) => {
-        setTodos(
-            todos.map((todo) => 
-            todo.id === id ? {...todo, completed: ! todo.completed} : todo));
+        setTodos((todos) => todos.map((todo) => 
+            todo.id === id ? {...todo, completed: !todo.completed} : todo));
     };
 
     const deleteTodo = (id) => {
@@ -36,13 +35,19 @@ function TodoWrapper() {
 
     const editTodo = (id) => {
         setTodos(
-            todos.map((todo) => todo.id === id ? {...todo, isEditing: !todo.isEditing} : todo));
+            (prev) =>
+                prev.map((todo) =>
+            todo.id === id ? {...todo, isEditing: !todo.isEditing } : todo)
+        );
     };
 
     const editTask = (updatedTask, id) => {
-        setTodos(
-            todos.map((todo) => todo.id === id ? {...todo, task: updatedTask, isEditing: !todo.isEditing} : todo))
+        setTodos((prev) =>
+            prev.map((todo) =>
+                todo.id === id ? {...todo, task: updatedTask, isEditing: !todo.isEditing }: todo)
+        );
     };
+
 
     const completeSet = (id, setIndex) => {
         setTodos((prevTodos) => {
@@ -52,7 +57,7 @@ function TodoWrapper() {
                 const updatedSets = [...todo.sets];
                 updatedSets[setIndex] = !updatedSets[setIndex];
 
-                const isCompleted = updatedSets.every((val) => (val));
+                const isCompleted = updatedSets.every((val) => val === true);
 
                 return {
                     ...todo,
@@ -61,6 +66,7 @@ function TodoWrapper() {
                 }
             })
         })
+        
     };
 
     return (

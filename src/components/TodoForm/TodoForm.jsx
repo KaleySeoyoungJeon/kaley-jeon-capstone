@@ -4,69 +4,40 @@ import './TodoForm.scss';
 
 function TodoForm({ addTodo }) {
 
-    // controlls the bottom card 
     const [isAddOpen, setIsAddOpen] = useState(false);
-
-    // workout name typed by user
     const [value, setValue] = useState('');
-
-    // user's chosen number of sets (1-5). Default is 1
     const [chosenSetCount, setChosenSetCount] = useState(1);
 
-    // always stores it in state after user chooses how many sets (see handleSetCount)
-    const [sets, setSets] = useState([false]);
 
-    // stack for toggling sets in LIFO order (unclick only the last set)
-    const [setStack, setSetStack] = useState([]);
+    const openAddCard = () => {
+        setIsAddOpen(true);
 
-    const openAddCard = () => setIsAddOpen(true);
-    const closeAddCard = () => setIsAddOpen(false);
-
-    // clicking a set => toggle it if the previous set is on
-    // if there's only 1 in total, clciking it on will complete the todo
-    const handleSetClick = (index) => {
-        setSets((prevSets) => {
-            const newSets = [...prevSets];
-            const newStack = [...setStack];
-
-            if (!newSets[index]) {
-                const canTurnOn = (index === 0) || newSets[index -1] === true;
-                if (canTurnOn) {
-                    newSets[index] = true,
-                    newStack.push(index);
-                    setSetStack(newStack);
-                }
-            } else {
-                const top = newStack[newStack.length -1];
-                if (top === index) {
-                    newSets[index] = false;
-                    newStack.pop();
-                    setSetStack(newStack);
-                }
-            }
-            return newSets;
-        })
+        setValue('');
+        setChosenSetCount(3);
     };
+
+    const closeAddCard = () => setIsAddOpen(false);
 
     const handleInputChange = (event) => {
         setValue(event.target.value);
     }
 
+    const handleSetCount = (count) => {
+        setChosenSetCount(count);
+    }
 
     const handleConfirm = () => {
         if (!value.trim()) return;
+
         addTodo({ 
             workout: value, 
-            chosenSet: selectedSet +1,
+            chosenSet: chosenSetCount,
         });
-
-    setValue('');
-    setChosenSetCount(1);
-    setSets([false]);
-    setSetStack([]);
-    closeAddCard();
+        
+        setValue('');
+        setChosenSetCount(3);
+        closeAddCard();
     };
-
 
     return (
         <div className="todoForm">
@@ -98,7 +69,7 @@ function TodoForm({ addTodo }) {
                                     key={count}
                                     type='button'
                                     className={`count-btn ${chosenSetCount === count ? "selected" : ''}`}
-                                    onClick={() => handleSetClick(count)}
+                                    onClick={() => handleSetCount(count)}
                                 >
                                     {count}
                                 </button>
