@@ -12,7 +12,7 @@ function TodoWrapper() {
     const [todos, setTodos] = useState([]);
 
     const addTodo = (todo) => { 
-        const setCount = data.chosenSet || 1;
+        const setCount = todo.chosenSet || 1;
         setTodos((prev) => [
             {
                 id: uuidv4(),
@@ -54,7 +54,7 @@ function TodoWrapper() {
     const completeSet = (todoId, setIndex) => {
         setTodos((prev) => 
             prev.map((todo) => {
-                if (todo.id !== id) return todo;
+                if (todo.id !== todoId) return todo;
                 
                 const newSets = [...todo.sets];
                 const newStack = [...todo.setStack];
