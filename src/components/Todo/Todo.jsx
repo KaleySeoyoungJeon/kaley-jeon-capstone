@@ -6,6 +6,7 @@ import capstone_edit_icon from '../../assets/icons/capstone_edit_icon.png'
 import capstone_trash_icon from '../../assets/icons/capstone_trash_icon.png'
 import capstone_menu_icon from '../../assets/icons/capstone_menu_icon.png'
 
+
 function Todo({ task, toggleComplete, deleteTodo, editTodo, completeSet }) {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,6 +61,7 @@ function Todo({ task, toggleComplete, deleteTodo, editTodo, completeSet }) {
             <div className="todo__bottom">
                 {task.sets && task.sets.length > 0 && (
                     <SetTracker
+                    className='set-btn'
                     todoId={task.id}
                     sets={task.sets}
                     setStack={task.setStack}

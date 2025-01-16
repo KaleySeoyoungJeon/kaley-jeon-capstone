@@ -4,8 +4,8 @@
 .TodoWrapper {    
     @include flex (flex, column, space-between, flex-start);
     width: 393px;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: $box-shadow; 
-    border: .5px solid $warmgrey;
+    // padding: 1rem;
+    // border-radius: 12px;
+    // box-shadow: $box-shadow; 
+    // border: .5px solid $warmgrey;
 }

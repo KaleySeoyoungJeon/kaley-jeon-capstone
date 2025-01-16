@@ -49,7 +49,7 @@ function TodoForm({ addTodo }) {
             )}
 
             {isAddOpen && (
-                <div className="addCard">
+                <div className="addCard">  
                     <div className="addCard__top">
                         <input 
                             type="text" 
@@ -60,22 +60,24 @@ function TodoForm({ addTodo }) {
                         />
                     </div>
                     <div className="addCard__bottom">
-                        <p className="addCard__bottom--label">
-                            Choose your sets
-                        </p>
-                        <div className="addCard__bottom--container">
-                            {[1, 2, 3, 4, 5].map((count) => (
-                                <button 
-                                    key={count}
-                                    type='button'
-                                    className={`count-btn ${chosenSetCount === count ? "selected" : ''}`}
-                                    onClick={() => handleSetCount(count)}
-                                >
-                                    {count}
-                                </button>
+                        <div className="addCard__bottom--left">
+                            <p className="addCard__bottom--label">
+                                Choose your sets
+                            </p>
+                            <div className="addCard__bottom--sets">
+                                {[1, 2, 3, 4, 5].map((count) => (
+                                    <button 
+                                        key={count}
+                                        type='button'
+                                        className={`count-btn ${chosenSetCount === count ? "selected" : ''}`}
+                                        onClick={() => handleSetCount(count)}
+                                    >
+                                        {count}
+                                    </button>
                             ))}
                         </div>
-                        <div className="addCard__bottom--btn">
+                        </div>
+                        <div className="addCard__bottom--right">
                             <button className='confirm-btn' onClick={handleConfirm}>
                                 Confirm
                             </button>

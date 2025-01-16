@@ -21,7 +21,7 @@ function SetTracker ({ todoId, sets, setStack, onToggleSet }) {
                 return (
                     <button
                         key={index}
-                        className={`set-button ${isOn ? 'completed' : ''}`}
+                        className={`setUser-btn ${isOn ? 'completed' : ''}`}
                         onClick={() => onToggleSet(todoId, index)}
                         disabled={disabled}
                     >

@@ -1,0 +1,23 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+
+.todoPage {
+
+
+    &__wrapper {
+        @include flex (flex, row, flex-start, center);
+    }
+}
+
+.todo--title {
+    font-size: 13px;
+    padding: .5rem;
+}
+.todo--chip {
+    font-size: 13px;
+    padding: 1px 4px;
+    background-color: red;
+    color: $white;
+    border-radius: 4px;
+}

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import TodoWrapper from "../../components/TodoWrapper/TodoWrapper";
+import './TodoPage.scss';
 
 function TodoPage() {
     
@@ -31,8 +32,9 @@ function TodoPage() {
 
     return (
             <div className="todoPage">
-                <div className="todo--chip">
-                    Targeting {displayText} 
+                <div className="todoPage__wrapper">
+                    <div className="todo--title"> Targeting</div>
+                    <div className="todo--chip">{displayText} </div>
                 </div>
                 <TodoWrapper selectedTarget={displayText} />
             </div>

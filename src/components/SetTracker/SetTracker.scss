@@ -1,1 +1,22 @@
 @use "../../styles/variables" as *;
+@use '../../styles/mixins' as *;
+
+
+.sets {
+    @include flex (flex, row, flex-start, end);
+    gap: 1.5rem;
+}
+
+.setUser-btn {
+    background-color: #D9E4FF;
+    border: 1px solid #223A76;
+    padding: .25rem .5rem;
+    border-radius: 2rem;
+
+    &:disabled {
+        background-color: #D8D8D8;
+        color: #6A6A6A;
+        cursor: not-allowed;
+        border: none;
+    }
+}
