@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import TodoWrapper from "../../components/TodoWrapper/TodoWrapper";
 import './TodoPage.scss';
 
-function TodoPage() {
+function TodoPage( { bodyPart }) {
     
     const location = useLocation();
     const navigate = useNavigate();
@@ -33,8 +33,16 @@ function TodoPage() {
     return (
             <div className="todoPage">
                 <div className="todoPage__wrapper">
-                    <div className="todo--title"> Targeting</div>
-                    <div className="todo--chip">{displayText} </div>
+                    <div className="todo--title"> 
+                        Targeting
+                    </div>
+                    <div className={`target-chip ${bodyPart}`}>
+                        {bodyPart === 'full' 
+                            ? 'Full body' 
+                            : bodyPart === 'upper' 
+                            ? 'Upper body'
+                            : 'Lower body'} 
+                    </div>
                 </div>
                 <TodoWrapper selectedTarget={displayText} />
             </div>

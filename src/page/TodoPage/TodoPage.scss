@@ -12,12 +12,25 @@
 
 .todo--title {
     font-size: 13px;
-    padding: .5rem;
+    padding: .25rem;
+    color: #6E6E6E;
 }
 .todo--chip {
     font-size: 13px;
-    padding: 1px 4px;
-    background-color: red;
-    color: $white;
+    padding: 0 4px;
+    display: inline-block;
     border-radius: 4px;
+
+    &.full {
+        background-color: #E6F4EA;
+        color: #178038;
+    }
+    &.upper {
+        background-color: #FEF7E0;
+        color: #C76F12;
+    }
+    &.lower {
+        background-color: #D0EFFF;
+        color: #0372C1;
+    }
 }
