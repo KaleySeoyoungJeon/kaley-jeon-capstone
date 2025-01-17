@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import TodoForm from '../TodoForm/TodoForm.jsx';
-import Todo from '../Todo/Todo.jsx';
-import EditTodo from '../EditTodo/EditTodoForm.jsx';
+import TodoForm from '../TodoForm/TodoForm';
+import Todo from '../Todo/Todo';
 import './TodoWrapper.scss';
+import EditTodoSheet from '../EditTodoSheet/EditTodoSheet';
 
 uuidv4(); 
 
@@ -89,7 +89,7 @@ function TodoWrapper() {
             <TodoForm addTodo={addTodo}/>
             {todos.map((todo) => (
                 todo.isEditing ? (
-                    <EditTodo key={todo.id} editTodo={editTask} task={todo} />
+                    <EditTodoSheet key={todo.id} editTodo={editTask} task={todo} />
                 ) :  <Todo 
                 task={todo} 
                 key={todo.id}

@@ -1,0 +1,77 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.editTodoSheet {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    &__overlay {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.5);
+        inset: 0;
+    }
+    &__content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50%;
+        background: $white;
+        border-radius: 16px 16px 0 0;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        padding: 1rem;
+        @include flex (flex, column, normal, normal);
+        animation: slideUp 0.3s ease forwards;
+    }
+    &__topBar {
+        position: relative;
+        @include flex (flex, row, space-between, center);
+    }
+    &--title {
+        font-size: 14px;
+        color: #767676;
+    }
+    &--close-btn {
+        width: 2rem;
+        height: 2rem;
+        padding: .5rem;
+        background-color: none;
+        border: none;
+        cursor: pointer;
+    }
+    .close-icon {
+        width: 12px;
+        height: 12px;
+    }
+    &__form {
+        @include flex (flex, column, normal, normal);
+        padding: 0 40px 12px 12px; 
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    &--input {
+        border: 1px solid #7D5DFD;
+        color: #424242;
+        font-size: 16px;
+        width: 100%;
+        height: 48px;
+    }
+    &--cta {
+        width: 100%;
+        height: 48px;
+        background-color: #7D5DFD;
+        color: $white;
+        font-size: 16px;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

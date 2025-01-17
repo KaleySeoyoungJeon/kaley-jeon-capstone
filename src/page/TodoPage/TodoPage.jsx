@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import TodoWrapper from "../../components/TodoWrapper/TodoWrapper";
+import TodoWrapper from "../../components/TodoWrapper/TodoWrapper.jsx";
 import './TodoPage.scss';
 
 function TodoPage() {
