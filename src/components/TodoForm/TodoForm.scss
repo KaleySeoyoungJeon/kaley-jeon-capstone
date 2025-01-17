@@ -2,6 +2,22 @@
 @use '../../styles/mixins' as *;
 
 
+
+.TodoForm {
+
+    .todo-input {
+        background-color: #fff;  // white background
+        color: #333;
+        border: 1px solid #ccc;
+        padding: 0.5rem;
+        border-radius: 4px;
+        &:disabled {
+            background-color: #e9ecef; 
+            cursor: not-allowed;
+        }
+    }
+}
+
 .floating-btn {
     @include flex (flex, row, center, center);
     width: auto;
@@ -10,8 +26,8 @@
     border-radius: 333px;
     gap: 4px;
     border: none;
-    background: rgb(208,230,255);
-    background: linear-gradient(110deg, rgba(208,230,255,1) 0%, rgba(67,107,207,1) 68%);
+    background: #7D5DFD;
+    // background: linear-gradient(110deg, rgba(208,230,255,1) 0%, rgba(67,107,207,1) 68%);
     box-shadow: $box-shadow;
     color: $white;
     .plus_icon {
