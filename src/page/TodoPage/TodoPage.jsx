@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import TodoWrapper from "../../components/TodoWrapper/TodoWrapper";
 import './TodoPage.scss';
 
-function TodoPage( { bodyPart }) {
+function TodoPage() {
     
     const location = useLocation();
     const navigate = useNavigate();
