@@ -13,6 +13,7 @@ function EditTodoSheet({ initialValue, todoId, onUpdate, onClose }) {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (!value.trim()) return;
+        console.log("EditTodoSheet: submitting", value, todoId);
         onUpdate(value, todoId);
         onClose();
     };
@@ -48,17 +49,16 @@ function EditTodoSheet({ initialValue, todoId, onUpdate, onClose }) {
                             value={value}
                             onChange={(event) => setValue(event.target.value)}
                         />
-                    </form>
-                    <button 
+                        <button 
                             className="editTodoSheet--cta"
                             type="submit"
-                            onClick={handleClose}
                         >
                             Update
-                </button>
-                </div>
+                        </button>
+                    </form>
                 </div>
             </div>
+        </div>
     )
 }
 

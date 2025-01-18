@@ -2,8 +2,9 @@
 @use "../../styles/mixins" as *;
 
 .popover {
-    @include flex (flex, column, space-between, center);
+    @include flex (flex, column, flex-start, center);
     position: absolute;
+    width: 148px;
     top: 32px;
     right: 0;
     z-index: 9999;
@@ -12,15 +13,16 @@
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    background-color: rgba(255, 255, 255, 0.2); 
+    background-color: $white;
+    // background-color: rgba(255, 255, 255, 0.2); 
     backdrop-filter: blur(10px) saturate(180%);;
     -webkit-backdrop-filter: blur(10px);
 
     &__menu {
-        @include flex (flex, row, space-between, center);
+        @include flex (flex, row, flex-start, center);
         width: 100%;
-        padding: .5rem 1rem;
-        gap: 2rem;
+        padding: .75rem 1rem;
+        gap: 1rem;
     }
 
     &--text-edit {
@@ -35,8 +37,8 @@
 
 .edit-icon,
 .delete-icon {
-    width: 18px;
-    height: 18px;   
+    width: 16px;
+    height: 16px;   
 }
 
 .edit-icon {

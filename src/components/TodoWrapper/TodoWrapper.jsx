@@ -37,6 +37,7 @@ function TodoWrapper() {
     };
 
     const editTodo = (newVal, id) => {
+        console.log("TodoWrapper: editTodo with", newVal, id);
         setTodos((prev) =>
             prev.map((todo) =>
                 todo.id === id ? {...todo, task: newVal } : todo)

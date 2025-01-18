@@ -51,16 +51,16 @@ function Todo({ task, toggleComplete, deleteTodo, editTodo, completeSet }) {
                     onClose={closeMenu}
                 >
                     <div className="popover__menu" onClick={handleEdit}>
+                        <img src={capstone_edit_icon} alt="Edit icon" className='edit-icon'/>
                         <h3 className="popover--text-edit">
                             Edit
                         </h3>
-                        <img src={capstone_edit_icon} alt="Edit icon" className='edit-icon'/>
                     </div>
                     <div className="popover__menu" onClick={handleDelete}>
+                        <img src={capstone_trash_icon} alt="Delete icon" className='delete-icon'/>
                         <h3 className="popover--text-delete">
                             Delete
                         </h3>
-                        <img src={capstone_trash_icon} alt="Delete icon" className='delete-icon'/>
                     </div>
                 </Popover>
             </div>

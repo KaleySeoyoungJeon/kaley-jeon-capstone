@@ -3,7 +3,7 @@
 
 .todo {
     @include flex (flex, column, space-between, center);
-    background: $background-list;
+    background: #F2F2FF;
     color: #fff;
     margin-bottom: 1rem;
     width: 100%;
@@ -36,12 +36,11 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        background-color: transparent;
         &:focus {
             border-radius: 333px;
-            background-color: rgba(199, 199, 199, 0.7);
-            opacity: .6;
+            background-color: rgba(151, 151, 151, 0.3);
         }
-
         .menu-icon {
             width: 20px;
             height: aut;
