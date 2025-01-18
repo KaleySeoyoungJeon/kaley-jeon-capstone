@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import './EditTodoSheet.scss';
 import capstone_close_icon from '../../assets/icons/capstone_close_icon.png'
+import './EditTodoSheet.scss'
 
 
-function EditTodoSheet({ initialValue, todoId, editTodo, task, onUpdate }) {
+function EditTodoSheet({ initialValue, todoId, onUpdate, onClose }) {
     const [value, setValue] = useState(initialValue);
 
     useEffect(() => {
@@ -13,14 +13,17 @@ function EditTodoSheet({ initialValue, todoId, editTodo, task, onUpdate }) {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (!value.trim()) return;
-        onUpdate(value, taskId);
-        onclose();
+        onUpdate(value, todoId);
+        onClose();
     };
 
     const stopProp = (event) => {
         event.stopPropagation();
     }
 
+    const handleClose = () => {
+        onClose();
+    }
 
     return (
             <div className="editTodoSheet">
@@ -33,7 +36,8 @@ function EditTodoSheet({ initialValue, todoId, editTodo, task, onUpdate }) {
                         <button 
                             className="editTodoSheet--close-btn" 
                             onClick={handleClose}
-                            type='button'>
+                            type='button'
+                        >
                             <img className='close-icon'src={capstone_close_icon} alt="Close icon" />
                         </button>
                     </div>
@@ -44,13 +48,14 @@ function EditTodoSheet({ initialValue, todoId, editTodo, task, onUpdate }) {
                             value={value}
                             onChange={(event) => setValue(event.target.value)}
                         />
-                        <button 
-                            className="editTodoSheet_cta"
+                    </form>
+                    <button 
+                            className="editTodoSheet--cta"
                             type="submit"
+                            onClick={handleSubmit}
                         >
                             Update
-                        </button>
-                    </form>
+                </button>
                 </div>
                 </div>
             </div>

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import TodoForm from '../TodoForm/TodoForm';
-import Todo from '../Todo/Todo';
 import './TodoWrapper.scss';
 import EditTodoSheet from '../EditTodoSheet/EditTodoSheet';
+import Todo from '../Todo/Todo';
 
 uuidv4(); 
 
@@ -36,17 +36,10 @@ function TodoWrapper() {
         setTodos((prev) => prev.filter((t) => t.id !== id));
     };
 
-    const editTodo = (id) => {
+    const editTodo = (newVal, id) => {
         setTodos((prev) =>
             prev.map((todo) =>
-                todo.id === id ? {...todo, isEditing: !todo.isEditing } : todo)
-        );
-    };
-
-    const editTask = (updatedTask, id) => {
-        setTodos((prev) =>
-            prev.map((todo) =>
-                todo.id === id ? {...todo, task: updatedTask, isEditing: !todo.isEditing }: todo)
+                todo.id === id ? {...todo, task: newVal } : todo)
         );
     };
 
@@ -85,18 +78,15 @@ function TodoWrapper() {
 
     return (
         <div className='TodoWrapper'>
-            {/* <h3 className='target'>Add your workout.</h3>  */}
             <TodoForm addTodo={addTodo}/>
             {todos.map((todo) => (
-                todo.isEditing ? (
-                    <EditTodoSheet key={todo.id} editTodo={editTask} task={todo} />
-                ) :  <Todo 
-                task={todo} 
-                key={todo.id}
-                toggleComplete={toggleComplete} 
-                deleteTodo={deleteTodo}
-                editTodo={editTodo}
-                completeSet={completeSet}
+                <Todo 
+                    task={todo} 
+                    key={todo.id}
+                    toggleComplete={toggleComplete} 
+                    deleteTodo={deleteTodo}
+                    editTodo={editTodo}
+                    completeSet={completeSet}
                 />
             ))}
         </div>

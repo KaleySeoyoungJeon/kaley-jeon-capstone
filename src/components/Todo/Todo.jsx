@@ -5,12 +5,17 @@ import Popover from '../Popover/Popover';
 import capstone_edit_icon from '../../assets/icons/capstone_edit_icon.png'
 import capstone_trash_icon from '../../assets/icons/capstone_trash_icon.png'
 import capstone_menu_icon from '../../assets/icons/capstone_menu_icon.png'
+import EditTodoSheet from '../EditTodoSheet/EditTodoSheet';
 
 
 function Todo({ task, toggleComplete, deleteTodo, editTodo, completeSet }) {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isEditOpen, setIsEditOpen] = useState(false);
+
     const containerRef = useRef(null);
+
+    const [isSheetOpen, setIsSheetOpen] = useState(false);
 
     const openMenu = () => setIsMenuOpen(true);
     const closeMenu = () => setIsMenuOpen(false);
@@ -21,9 +26,10 @@ function Todo({ task, toggleComplete, deleteTodo, editTodo, completeSet }) {
     };
 
     const handleEdit = () => {
-        editTodo(task.id);
+        setIsSheetOpen(true);
         closeMenu();
     };
+
 
     return (
         <div className="todo" ref={containerRef} style={{ position: "relative" }}>
@@ -69,6 +75,17 @@ function Todo({ task, toggleComplete, deleteTodo, editTodo, completeSet }) {
                     />
                 )}
             </div>
+            {isSheetOpen && (
+                <EditTodoSheet
+                    initialValue={task.task}
+                    todoId={task.id}
+                    onClose={() => setIsSheetOpen(false)}
+                    onUpdate={(newVal, id) => {
+                        editTodo(newVal, id);
+                        setIsSheetOpen(false);
+                    }}
+                />
+            )}
         </div>
     )
 }

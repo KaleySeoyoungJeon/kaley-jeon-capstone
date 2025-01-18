@@ -78,7 +78,7 @@ function TodoForm({ addTodo }) {
                         </div>
                         </div>
                         <div className="addCard__bottom--right">
-                            <button className='confirm-btn' onClick={handleConfirm}>
+                            <button className='confirm-btn' type='submit' onClick={handleConfirm}>
                                 Confirm
                             </button>
                         </div>
