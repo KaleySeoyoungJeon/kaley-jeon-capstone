@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import capstone_add_icon from '../../assets/icons/capstone_add_icon.png'
+import capstone_close_icon from '../../assets/icons/capstone_close_icon.png'
 import './TodoForm.scss';
 
 function TodoForm({ addTodo }) {
@@ -9,14 +10,16 @@ function TodoForm({ addTodo }) {
     const [chosenSetCount, setChosenSetCount] = useState(1);
 
 
-    const openAddCard = () => {
+    const openAddSheet = () => {
         setIsAddOpen(true);
 
         setValue('');
         setChosenSetCount(3);
     };
 
-    const closeAddCard = () => setIsAddOpen(false);
+    const closeAddSheet = () => {
+        setIsAddOpen(false);
+    }
 
     const handleInputChange = (event) => {
         setValue(event.target.value);
@@ -36,35 +39,48 @@ function TodoForm({ addTodo }) {
         
         setValue('');
         setChosenSetCount(3);
-        closeAddCard();
+        closeAddSheet();
     };
 
     return (
         <div className="todoForm">
             {!isAddOpen && (
-                <button className="floating-btn" onClick={openAddCard}>
+                <button className="floating-btn" onClick={openAddSheet}>
                     <img src={capstone_add_icon} alt="Plus add icon" className='plus_icon' />
                     Add
                 </button>
             )}
 
             {isAddOpen && (
-                <div className="addCard">  
-                    <div className="addCard__top">
-                        <input 
-                            type="text" 
-                            className="addCard__top--input"
-                            value={value}
-                            onChange={handleInputChange}
-                            placeholder='Type your workout'
-                        />
-                    </div>
-                    <div className="addCard__bottom">
-                        <div className="addCard__bottom--left">
-                            <p className="addCard__bottom--label">
+                <div className="addSheet">
+                    <div className="addSheet__overlay" onClick={closeAddSheet}/>
+                    <div className="addSheet__bottom">
+                        <div className="addSheet__global">
+                            <p className="addSheet__global--title">
+                                    Add Workout
+                                </p>
+                            <button 
+                                className="addSheet__global--close-btn" 
+                                onClick={closeAddSheet}
+                                type='button'
+                            >
+                                <img className='close-icon'src={capstone_close_icon} alt="Close icon" />
+                            </button>
+                        </div>
+                        <div className="addSheet__top">
+                            <input 
+                                type="text" 
+                                className="addSheet__top--input"
+                                value={value}
+                                onChange={handleInputChange}
+                                placeholder='Type your workout'
+                            />
+                        </div>
+                        <div className="addSheet__content" onClick={(event) => event.stopPropagation()}>
+                            <p className="addSheet__content--label">
                                 Choose your sets
                             </p>
-                            <div className="addCard__bottom--sets">
+                            <div className="addSheet__content--sets">
                                 {[1, 2, 3, 4, 5].map((count) => (
                                     <button 
                                         key={count}
@@ -77,7 +93,7 @@ function TodoForm({ addTodo }) {
                             ))}
                         </div>
                         </div>
-                        <div className="addCard__bottom--right">
+                        <div className="addSheet__bottom--cta">
                             <button className='confirm-btn' type='submit' onClick={handleConfirm}>
                                 Confirm
                             </button>

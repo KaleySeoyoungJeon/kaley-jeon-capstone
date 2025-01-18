@@ -23,7 +23,7 @@
         @include flex (flex, column, space-between, normal);
         animation: slideUp 0.3s ease forwards;
     }
-    &__topBar {
+    &__global {
         position: relative;
         @include flex (flex, row, space-between, center);
         gap: 1rem;

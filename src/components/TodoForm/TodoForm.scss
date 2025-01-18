@@ -4,16 +4,20 @@
 
 
 .TodoForm {
+    position: relative;
 
     .todo-input {
-        background-color: #fff;  // white background
-        color: #333;
-        border: 1px solid #ccc;
-        padding: 0.5rem;
-        border-radius: 4px;
-        &:disabled {
-            background-color: #e9ecef; 
-            cursor: not-allowed;
+        border: 1px solid #7D5DFD;
+        border-radius: 8px;
+        color: #424242;
+        font-size: 16px;
+        width: 100%;
+        height: 48px;
+        margin-bottom: 32px;
+        padding: 0 8px;
+        &:focus {
+            background-color: #F9F6FF;
+            outline: none;
         }
     }
 }
@@ -36,46 +40,81 @@
     }
 }
 
-.addCard { 
+.addSheet { 
     @include flex (flex, column, space-between, start);
     width: 362px;
     background-color: #F0F0F0;
     border-radius: 12px;
     box-shadow: $box-shadow; 
 
+    &__overlay {
+        position: absolute;
+        inset: 0;
+    }
+    &__bottom {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 25%;
+        background: $white;
+        border-radius: 16px 16px 0 0;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        @include flex (flex, column, space-between, normal);
+        animation: slideUp 0.3s ease forwards;
+    }
+    &__global {
+        position: relative;
+        @include flex (flex, row, space-between, center);
+        gap: 1rem;
+        margin: 1rem;
+        &--title {
+            font-size: 14px;
+            width: 100%;
+            color: #767676;
+            text-align: center;
+        }
+    &--close-btn {
+        width: 2rem;
+        height: 2rem;
+        padding: .5rem;
+        background-color: none;
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+    }
+    .close-icon {
+        width: 16px;
+        height: 16px;
+    }
+    }
     &__top {
         width: 100%;
         padding: 1rem;
         position: relative;
-        &::after {
-            content:'';
-            position: absolute;
-            left: 12px;
-            right: 12px;
-            bottom: 0;
-            border-bottom: 1px solid #e1e1e1;
-        }
         &--input {
-            width: 100%;
-            border: none;
-            background: none;
+            border: 1px solid #7D5DFD;
             border-radius: 8px;
-            padding: .5rem;
-            color: #2d2d2d;
+            color: #424242;
             font-size: 16px;
-        }
-        &--input:focus {
-            background-color: $white;
-            outline: none;
+            width: 100%;
+            height: 48px;
+            margin-bottom: 1rem;
+            padding: 0 8px;
+            &:focus {
+                background-color: #F9F6FF;
+                outline: none;
+            }
         }
         &--input::placeholder {
             color: $font-placeholder;
         }
     }
-    &__bottom {
+    &__content {
         width: 100%;
-        padding-top: 12px;
-        @include flex (flex, row, space-between, end);
+        padding: 1rem;
+        margin-bottom: 2rem;
+        @include flex (flex, column, space-between, start);
         &--left {
             margin-left: 12px;
             margin-bottom: 12px;
@@ -94,25 +133,25 @@
             box-sizing: border-box;
             width: 28px;
             height: 28px;
-            border: 1px solid $secondary;
+            border: 1px solid #7D5DFD;
             border-radius: 50%;
-            color: $secondary;
+            color: #7D5DFD;
             background-color: $white;
             cursor: pointer;
 
             &.selected {
-                background-color: $secondary;
-                color: $white;
+                background-color: #E7E2FF;
+                color: #7D5DFD;
         }
         }
     }
 }
 
 .confirm-btn {
-    background: #D4E1FF;
-    border-radius: 12px 0px 12px 0px;
-    color: #223A76;
+    width: 100%;
+    background: #7D5DFD;
+    color: $white;
     border: none;
     padding: 12px;
     cursor: pointer;
-}
+}        

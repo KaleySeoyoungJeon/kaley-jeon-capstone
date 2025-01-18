@@ -29,7 +29,7 @@ function EditTodoSheet({ initialValue, todoId, onUpdate, onClose }) {
             <div className="editTodoSheet">
                 <div className="editTodoSheet__overlay" onClick={handleClose}>
                 <div className="editTodoSheet__content" onClick={stopProp}>
-                    <div className="editTodoSheet__topBar">
+                    <div className="editTodoSheet__global">
                         <p className="editTodoSheet--title">
                             Edit Workout
                         </p>
@@ -52,7 +52,7 @@ function EditTodoSheet({ initialValue, todoId, onUpdate, onClose }) {
                     <button 
                             className="editTodoSheet--cta"
                             type="submit"
-                            onClick={handleSubmit}
+                            onClick={handleClose}
                         >
                             Update
                 </button>
