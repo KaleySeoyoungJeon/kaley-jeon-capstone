@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import ErrorNotification from '../../components/ErrorNotification/ErrorNotification';
 import capstone_thunder_icon from '../../assets/icons/capstone_thunder_icon.png'
+import capstone_logo_md from '../../assets/logos/capstone_logo_md.png'
 
 
 function LandingPage() {
@@ -27,9 +28,16 @@ function LandingPage() {
 
     return (
         <div className='landingPage'>
-            <h1 className='landingPage--title'> Welcome to <span>Better Today</span></h1>
-            <p className="landingPage--body">
-                Where are you targeting today?
+            <div className="marquee">
+                <div className="marquee__inner">
+                    <p className="marquee__inner--text">where you become 1 % better than yesterday 💪 </p>
+                    <p className="marquee__inner--text">✸ where you become 1 % better than yesterday 💪 </p>
+                    <p className="marquee__inner--text">where you become 1 % better than yesterday 💪 </p>
+                </div>
+            </div>
+            <img className='landingPage--logo' src={capstone_logo_md} alt="Logo of Better Today" />
+            <p className="landingPage--title">
+                Move Forward with Easy Workout Tracking
             </p>
             <div className="landingPage__options">
                 <button
