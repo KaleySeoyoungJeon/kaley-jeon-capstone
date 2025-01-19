@@ -38,10 +38,9 @@ function TodoPage() {
                 </div>
                 <div className="todoPage__card">
                     <div className="todoPage__card--top">
-                        <p className="card-text">Loream ipsum</p>
+                        <p className="card-text">Workout Board</p>
                     </div>
-                </div>
-                    <div className="todoPage__wrapper">
+                    <div className="todoPage__target">
                         <div className="todo--title"> 
                             Targeting
                         </div>
@@ -53,6 +52,8 @@ function TodoPage() {
                                 : 'Lower body'} 
                         </div>
                     </div>
+                </div>
+
                     <TodoWrapper selectedTarget={displayText} />
             </div>
     )

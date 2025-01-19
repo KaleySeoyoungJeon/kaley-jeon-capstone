@@ -28,7 +28,15 @@ function LandingPage() {
         }
         navigate('/todo', { state: { bodyPart: selectedBodyPart }});
     };
+    
+    const [isSelected, setIsSelected] = useState(false);
 
+    const handleStartWithGlow = () => {
+        setIsSelected(true);
+        setTimeout(() => {
+            handleStart();
+        }, 500)
+    }
 
     return (
         <div className='landingPage'>
@@ -81,8 +89,8 @@ function LandingPage() {
             </div>
             <div className="start__cta">
                 <button 
-                    className='start__cta--btn' 
-                    onClick={handleStart}
+                    className={`start__cta--btn ${isSelected ? 'selected' : '' }`}
+                    onClick={handleStartWithGlow}
                     aria-label="button with thunder icon"
                 > 
                     Get Started

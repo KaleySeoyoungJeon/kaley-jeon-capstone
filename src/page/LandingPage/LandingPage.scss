@@ -108,7 +108,6 @@
 }
 
 .body-btn {
-
     @include flex (flex, column, space-between, center);
     padding: 10px 16px;
     outline: none;
@@ -150,12 +149,47 @@
         height: 44px;
         background-color: #7D5DFD;
         box-shadow: inset 0 4px 4px 0 rgba(255, 255, 255, 0.4);
-        // box-shadow: $box-shadow;
         color: $white;
         border: none;
         border-radius: 333px;
         font-size: 1rem;
         gap: 0.5rem;
+        position: relative;
+        z-index: 0;
+
+        &::before {
+            content: '';
+            background: linear-gradient(45deg,  #D56CFF, #5F47FF, #3B6CFF, #9B8CFF);
+            position: absolute; 
+            top: -2px;
+            left: -2px;
+            z-index: -1;
+            background-size: 400%;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3px ease-in-out;
+            border-radius: 333px;
+        }
+        &::after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            background-color: #7D5DFD;
+            left: 0;
+            top: 0;
+            border-radius: 333px;
+        }
+        &:hover::before {
+            opacity: 1;
+        }
+        &.selected {
+            color: $white;
+        }
+
     }
     &--btn-icon {
         width: 10px;
@@ -173,4 +207,10 @@ span {
     font-weight: bolder;
     font-size: 24px;
     color: $primary;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0;}
+    50% { background-position: 400% 0;}
+    100% { background-position: 0 0;}
 }
