@@ -43,8 +43,6 @@ function LandingPage() {
             <p className="landingPage--title">
                 Move Forward with Easy Workout Tracking
             </p>
-
-            {/* make change here for the new button section */}
             <div className="landingPage__options">
                 <div className="landingPage__options--top">
                     <img className='star-icon' src={capstone_star_icon} alt="Star icon" />
@@ -53,47 +51,42 @@ function LandingPage() {
                     </p>
                 </div>
                 <div className="landingPage__options--bottom">
-                    <div className="button-group">
-                        <img className="icon-btn" src={capstone_kettle_icon} alt="Kettle bell icon" />
                         <button
                             className={`body-btn full-btn ${selectedBodyPart === 'full' ? 'selected' : ''}`}
                             onClick={() => handleBodyPartClick('full')}
                             aria-label="Full body"
                         >
+                            <img className="icon-btn" src={capstone_kettle_icon} alt='' aria-hidden='true' />
                             Full
                             <br aria-hidden='true' />
                             Body
                         </button>
-                    </div>
-                    <div className="button-group">
-                        <img className="icon-btn" src={capstone_dumbell_icon} alt=""  />
                         <button 
                             className={`body-btn upper-btn ${selectedBodyPart === 'upper' ? 'selected' : ''}`}
                             onClick={() => handleBodyPartClick('upper')}
                             aria-label="Upper body"
                         >
+                            <img className="icon-btn" src={capstone_dumbell_icon} alt="" aria-hidden='true' />
                             Upper body
                         </button>
-                    </div>
-                    <div className="button-group">
-                        <img className='icon-btn' src={capstone_barbell_icon} alt="barbell icon" />
                         <button
                             className={`body-btn lower-btn ${selectedBodyPart === 'lower' ? 'selected' : ''}`}
                             onClick={() => handleBodyPartClick('lower')}
-                            aria-lable="Lower body"
+                            aria-label="Lower body"
                         >
+                            <img className='icon-btn' src={capstone_barbell_icon} alt="" aria-hidden='true' />
                             Lower body
                         </button>
-                    </div>
                 </div>
             </div>
             <div className="start__cta">
                 <button 
                     className='start__cta--btn' 
                     onClick={handleStart}
+                    aria-label="button with thunder icon"
                 > 
                     Get Started
-                    <img src={capstone_thunder_icon} alt="Thunder icon"  className='start__cta--btn-icon'/>
+                    <img src={capstone_thunder_icon} alt="" aria-hidden='true'  className='start__cta--btn-icon'/>
                 </button>
                 <p className='start__cta--text'>Getting it done is better than perfecting it</p>
             </div>

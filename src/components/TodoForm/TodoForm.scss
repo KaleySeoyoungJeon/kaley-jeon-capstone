@@ -30,9 +30,9 @@
     border-radius: 333px;
     gap: 2px;
     border: none;
-    background: #7D5DFD;
     background: linear-gradient(87deg, rgba(213,108,255,1) 0%, rgba(95,71,255,1) 55%, rgba(59,108,266,1) 100%);
-    box-shadow: $box-shadow;
+    box-shadow: inset 0 4px 4px 0 rgba(255, 255, 255, 0.4);
+    // box-shadow: $box-shadow;
     color: $white;
     .plus_icon {
         width: 24px;
