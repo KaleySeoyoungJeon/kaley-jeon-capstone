@@ -32,7 +32,10 @@ function Todo({ task, toggleComplete, deleteTodo, editTodo, completeSet }) {
 
 
     return (
-        <div className="todo" ref={containerRef} style={{ position: "relative" }}>
+        <div 
+            className={`todo ${task.completed ? 'finished' :''}`} 
+            ref={containerRef} 
+            style={{ position: "relative" }}>
             <div className="todo__top">
                 <p
                     onClick={() => toggleComplete(task.id)}

@@ -8,6 +8,9 @@
     margin-bottom: 1rem;
     width: 100%;
     border-radius: 12px;
+    &.finished {
+        background-color: #EDEDED;
+    }
 
     &__top {
         @include flex (flex, row, space-between, center);
