@@ -6,17 +6,15 @@ function ErrorNotification( { message } ) {
     if (!message) return null;
 
     return (
-        <div>
             <div className="error-notification">
-                <div className="erorr-notification--icon">
-                    <p className='erorr-notification--mark'>
+                <div className="error-notification--icon">
+                    <span className='error-notification--mark'>
                         !
-                    </p>
+                    </span>
                 </div>
                 <p className="error-notification--text">
                     {message}
                 </p>
-            </div>
         </div>
     )
 }

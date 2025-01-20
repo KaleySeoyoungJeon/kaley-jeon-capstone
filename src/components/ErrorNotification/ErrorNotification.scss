@@ -2,25 +2,30 @@
 @use "../../styles/mixins" as *;
 
 .error-notification {
-    @include flex (flex, row, flex-start, center);
+    display: inline-flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
     background-color: $state-red-background;
     border-radius: 4px;
     padding: 8px 12px;
-    top: 16px;
-    left: 70%;
-    transform: translateX(-50%);
     z-index: 9999;
+    gap: 8px;
 
     &--icon {
-        border-radius: 333px;
-        width: 14px;
-        height: 14px;
+        @include flex (flex, row, center, center);
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
         background-color: $state-red;
     }
     &--mark {
+        text-align: center;
+        font-weight: bold;
         width: 12px;
-        color: $white;
+        color: #fff;
         font-size: 12px;
+        line-height: 12px;
     }
     &--text {
         color: $state-red;

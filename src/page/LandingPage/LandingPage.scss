@@ -82,7 +82,7 @@
         @include flex (flex, column, center, center);
         background-color: #F2F2FF;
         box-shadow: 0 0 14px rgba(142, 118, 216, 0.5);
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
         border: 0.5px solid #7C8BFF;
         border-radius: 16px;
         width: 359px;
@@ -143,10 +143,9 @@
 .start__cta {
     @include flex (flex, column, center, center);
     gap: 0.75rem;
+    margin-top: 3rem;
     &--btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        @include flex (flex, normal, center, center);
         width: 200px;
         height: 44px;
         background-color: #7D5DFD;
@@ -156,6 +155,7 @@
         border-radius: 333px;
         font-size: 1rem;
         gap: 0.5rem;
+        margin: 3rem 0 .5rem 0;
         position: relative;
         z-index: 0;
 
@@ -203,6 +203,12 @@
         font-weight: light;
         color: #9b9b9b;
     }
+}
+
+.options-error {
+    display: block;
+    margin-top: 1rem;
+    width: 100%;
 }
 
 span {

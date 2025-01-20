@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import TodoWrapper from "../../components/TodoWrapper/TodoWrapper.jsx";
 import './TodoPage.scss';
 import capstone_logo_md from '../../assets/logos/capstone_logo_md.png'
+import quotes from '../../data/quotes.js'
 
 
 function getDaySuffix(day) {
@@ -78,6 +79,12 @@ function TodoPage() {
 
     const displayText = bodyPart ? targetMap[bodyPart] : null;
 
+    //random quotes
+    const [randomQuote] = useState(() => {
+        const index = Math.floor(Math.random() * quotes.length);
+        return quotes[index]?.text || "1% better today!";//fallback
+    });
+ 
     if (!bodyPart) {
         return null; // add spinner later?
     }
@@ -110,7 +117,10 @@ function TodoPage() {
                             {currentTime.split('\n')[1]}
                         </p>
                         <p className="workoutBoard__card-bottom--text">
-                            lorem ipsum inpirational quote
+                            <p className="quote-label">
+                                Quote of the day:
+                            </p>
+                            {randomQuote}
                         </p>
                     </div>
                 </div>

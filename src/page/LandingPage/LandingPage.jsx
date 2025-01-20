@@ -23,7 +23,7 @@ function LandingPage() {
 
     const handleStart = () => {
         if (!selectedBodyPart) {
-            setErrorMessage("Please select one of the targeting body parts.");
+            setErrorMessage("Please select one of the targeting body buttons.");
             return;
         }
         navigate('/todo', { state: { bodyPart: selectedBodyPart }});
@@ -42,9 +42,9 @@ function LandingPage() {
         <div className='landingPage'>
             <div className="marquee">
                 <div className="marquee__inner">
-                    <p className="marquee__inner--text">where you become 1 % better than yesterday 💪 </p>
-                    <p className="marquee__inner--text">✸ where you become 1 % better than yesterday 💪 </p>
-                    <p className="marquee__inner--text">where you become 1 % better than yesterday 💪 </p>
+                    <p className="marquee__inner--text"> Better Today ✸ where you become 1 % better than yesterday 💪 </p>
+                    <p className="marquee__inner--text">Better Today ✸ where you become 1 % better than yesterday 💪 </p>
+                    <p className="marquee__inner--text">Better Today ✸ where you become 1 % better than yesterday 💪 </p>
                 </div>
             </div>
             <img className='landingPage--logo' src={capstone_logo_md} alt="Logo of Better Today" />
@@ -87,6 +87,14 @@ function LandingPage() {
                         </button>
                 </div>
             </div>
+            <div className="options-error">
+                {errorMessage && (
+                    <ErrorNotification
+                        message={errorMessage}
+                        onClose={() => setErrorMessage('')}
+                    />
+                )}
+            </div>
             <div className="start__cta">
                 <button 
                     className={`start__cta--btn ${isSelected ? 'selected' : '' }`}
@@ -98,11 +106,6 @@ function LandingPage() {
                 </button>
                 <p className='start__cta--text'>Getting it done is better than perfecting it</p>
             </div>
-            <ErrorNotification
-                message={errorMessage}
-                onClose={() => setErrorMessage('')}
-            />
-
         </div>
     )
 }

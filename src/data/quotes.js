@@ -20,5 +20,5 @@ const quotes = [
     { "id": 19, "text": "In the end, you only regret the workouts you skipped." },
     { "id": 20, "text": "Your body is your home—make it a place you’re proud of." }
 ];
-  
+
 export default quotes;
