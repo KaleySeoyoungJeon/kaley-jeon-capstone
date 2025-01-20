@@ -12,7 +12,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 852px;
+  width: 100%;
+  padding-top: 1rem;
 }
 
 .App {
