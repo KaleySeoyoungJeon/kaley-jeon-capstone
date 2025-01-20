@@ -1,0 +1,64 @@
+@use "../../styles/variables" as *;
+@use '../../styles/mixins' as *;
+
+.todo {
+    @include flex (flex, column, space-between, center);
+    background: #F2F2FF;
+    color: #fff;
+    margin-bottom: 1rem;
+    width: 100%;
+    border-radius: 12px;
+    &.finished {
+        background-color: #EDEDED;
+    }
+
+    &__top {
+        @include flex (flex, row, space-between, center);
+        padding: 8px 16px;
+        width: 100%;
+        height: atuo;
+        border-bottom: 1px solid #D5DAFF;
+    }
+    &__bottom {
+        padding: 8px 16px;
+        width: 100%;
+        height: auto;
+        @include flex (flex, row, space-between, flex-start);
+    }
+    &--text {
+        font-size: 1.125rem;
+        color: #4B4848;
+        background-color: transparent;
+    }
+    .menu-btn {
+        box-sizing: border-box;
+        border: none;
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background-color: transparent;
+        &:focus {
+            border-radius: 333px;
+            background-color: rgba(151, 151, 151, 0.3);
+        }
+        .menu-icon {
+            width: 20px;
+            height: aut;
+        }
+    }
+}
+
+.incompleted {
+    color: $background-list;
+    cursor: pointer;
+}
+
+.completed {
+    color: #4B4848;
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
