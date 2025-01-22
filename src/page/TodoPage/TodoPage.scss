@@ -19,7 +19,7 @@
     border: .5px solid #424CDC;
     border-radius: 12px;
     margin-bottom: 2rem;
-    background-color: #F2F2FF;
+    background-color: #F8F8FF;
     .card-text {
         font-size: 12px;
         background-color: #424CDC;
@@ -36,7 +36,7 @@
     .target-title {
         font-size: 13px;
         padding: .25rem;
-        color: #2C378B;
+        color: #64698F;
     }
     .target-chip {
         font-size: 13px;
@@ -45,16 +45,16 @@
         border-radius: 4px;
     
         &.full {
-            background-color: #E6F4EA;
-            color: #178038;
+            background-color: #34BBA5;
+            color: $white;
         }
         &.upper {
-            background-color: #FEF7E0;
-            color: #C76F12;
+            background-color: #FF6F76;
+            color: $white;
         }
         &.lower {
-            background-color: #D0EFFF;
-            color: #0372C1;
+            background-color: #3296DD;
+            color: $white;
         }
     }
     &__card-bottom {

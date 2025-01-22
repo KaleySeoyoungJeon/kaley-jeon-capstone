@@ -50,7 +50,6 @@ function TodoForm({ addTodo }) {
                     Add
                 </button>
             )}
-
             {isAddOpen && (
                 <div className="addSheet">
                     <div className="addSheet__overlay" onClick={closeAddSheet}/>

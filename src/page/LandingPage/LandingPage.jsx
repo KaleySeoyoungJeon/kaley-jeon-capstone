@@ -53,8 +53,10 @@ function LandingPage() {
             </p>
             <div className="landingPage__options">
                 <div className="landingPage__options--top">
-                    <img className='star-icon' src={capstone_star_icon} alt="Star icon" />
+                    {/* <img className='star-icon' src={capstone_star_icon} alt="Star icon" /> */}
                     <p className="target-text">
+                        ✱
+                        <br aria-hidden='true' />
                         Choose a targeting area
                     </p>
                 </div>
