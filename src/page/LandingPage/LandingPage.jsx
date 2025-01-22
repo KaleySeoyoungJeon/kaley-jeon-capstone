@@ -22,13 +22,11 @@ function LandingPage() {
     };
 
     const handleStart = () => {
-
-
         if (!selectedBodyPart) {
             setErrorMessage("Please select one of the targeting body buttons.");
             return;
         }
-        navigate('/todo', { state: { bodyPart: selected }});
+        navigate('/todo', { state: { bodyPart: selectedBodyPart }});
     };
     
     const [isSelected, setIsSelected] = useState(false);
