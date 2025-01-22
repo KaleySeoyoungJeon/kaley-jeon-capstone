@@ -91,7 +91,7 @@ function TodoPage() {
 
     return (
             <div className="todoPage">
-                <div className="logo">
+                <div className="logo" onClick={() => navigate('/')}>
                     <img src={capstone_logo_md} alt="Logo icon" className="logo--icon" />
                 </div>
                 <div className="workoutBoard">
