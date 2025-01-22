@@ -112,7 +112,7 @@
 
 .body-btn {
     @include flex (flex, column, space-between, center);
-    padding: 10px 16px;
+    padding: 1rem;
     outline: none;
     border: none;
     cursor: pointer;
@@ -137,8 +137,9 @@
 }
 
 .icon-btn {
-    width: 40px;
-    margin-top: 1rem;
+    width: 48px;
+    margin-top: .5rem;
+    padding-bottom: .5rem;
 }
 
 .start__cta {
