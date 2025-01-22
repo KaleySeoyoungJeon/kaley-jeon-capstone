@@ -19,7 +19,7 @@
     border: .5px solid #424CDC;
     border-radius: 12px;
     margin-bottom: 2rem;
-    background-color: $white;
+    background-color: #F8F8FF;
     .card-text {
         font-size: 12px;
         background-color: #424CDC;
@@ -36,7 +36,7 @@
     .target-title {
         font-size: 13px;
         padding: .25rem;
-        color: #6E6E6E;
+        color: #64698F;
     }
     .target-chip {
         font-size: 13px;
@@ -45,31 +45,37 @@
         border-radius: 4px;
     
         &.full {
-            background-color: #E6F4EA;
-            color: #178038;
+            background-color: #34BBA5;
+            color: $white;
         }
         &.upper {
-            background-color: #FEF7E0;
-            color: #C76F12;
+            background-color: #FF6F76;
+            color: $white;
         }
         &.lower {
-            background-color: #D0EFFF;
-            color: #0372C1;
+            background-color: #3296DD;
+            color: $white;
         }
     }
     &__card-bottom {
-        @include flex (flex, column, flex-start, center);
+        @include flex (flex, column, flex-start, flex-start);
         padding: 1rem;
         &--time {
             font-size: 28px;
-            font-weight: bold;
-            color: #424CDC;
+            font-weight: bolder;
+            line-height: 32px;
+            color: #2C378B;
             padding-bottom: 1rem;
         }
         &--text {
             width: 100%;
             font-size: 14px;
-            color: #424CDC;
+            font: italic;
+            color: #2C378B;
+        }
+        .quote-label {
+            font-size: 12px;
+            color: #64698F;
         }
     }
 }

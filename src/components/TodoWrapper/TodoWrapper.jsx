@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import TodoForm from '../TodoForm/TodoForm';
 import './TodoWrapper.scss';
@@ -9,7 +9,15 @@ uuidv4();
 
 function TodoWrapper() {
 
-    const [todos, setTodos] = useState([]);
+    //localStorage
+    const [todos, setTodos] = useState(() => {
+        const savaedTodos = localStorage.getItem('workoutData');
+        return savaedTodos ? JSON.parse(savaedTodos) : [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem('workoutData', JSON.stringify(todos));
+    }, [todos]);
 
     const addTodo = (todo) => { 
         const setCount = todo.chosenSet || 1;
