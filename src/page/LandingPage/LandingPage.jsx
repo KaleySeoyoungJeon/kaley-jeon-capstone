@@ -19,21 +19,12 @@ function LandingPage() {
     const handleBodyPartClick = (bodyPart) => {
         setSelectedBodyPart(bodyPart);
         setErrorMessage('');
-        localStorage.setItem('selectedBodyPart', bodyPart);
     };
-
-    useEffect(() => {
-        const savedBodyPart = JSON.parse(localStorage.getItem('workoutRoutine'));
-        if (savedBodyPart) {
-            setSelectedBodyPart(savedBodyPart);
-        }
-    }, []);
 
     const handleStart = () => {
 
-        const selected = selectedBodyPart || localStorage.getItem('selectedBodyPart');
 
-        if (!selected) {
+        if (!selectedBodyPart) {
             setErrorMessage("Please select one of the targeting body buttons.");
             return;
         }
@@ -46,7 +37,7 @@ function LandingPage() {
         setIsSelected(true);
         setTimeout(() => {
             handleStart();
-        }, 500)
+        }, 400)
     }
 
     return (

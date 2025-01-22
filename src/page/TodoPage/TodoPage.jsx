@@ -34,6 +34,15 @@ function TodoPage() {
         }
     }, [bodyPart, navigate]);
 
+    //localStorage
+    const [workoutData, setWorkoutData] = useState(() => {
+        return JSON.parse(localStorage.getItem('workoutData')) || [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem('workoutData', JSON.stringify(workoutData));
+    }, [workoutData]);
+
     const targetMap = {
         upper:"Upper Body",
         lower: "Lower Body",
