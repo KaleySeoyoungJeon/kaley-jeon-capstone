@@ -1,6 +1,6 @@
 import './LandingPage.scss';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ErrorNotification from '../../components/ErrorNotification/ErrorNotification';
 import capstone_thunder_icon from '../../assets/icons/capstone_thunder_icon.png'
 import capstone_logo_md from '../../assets/logos/capstone_logo_md.png'
@@ -19,14 +19,25 @@ function LandingPage() {
     const handleBodyPartClick = (bodyPart) => {
         setSelectedBodyPart(bodyPart);
         setErrorMessage('');
+        localStorage.setItem('selectedBodyPart', bodyPart);
     };
 
+    useEffect(() => {
+        const savedBodyPart = JSON.parse(localStorage.getItem('workoutRoutine'));
+        if (savedBodyPart) {
+            setSelectedBodyPart(savedBodyPart);
+        }
+    }, []);
+
     const handleStart = () => {
-        if (!selectedBodyPart) {
+
+        const selected = selectedBodyPart || localStorage.getItem('selectedBodyPart');
+
+        if (!selected) {
             setErrorMessage("Please select one of the targeting body buttons.");
             return;
         }
-        navigate('/todo', { state: { bodyPart: selectedBodyPart }});
+        navigate('/todo', { state: { bodyPart: selected }});
     };
     
     const [isSelected, setIsSelected] = useState(false);
