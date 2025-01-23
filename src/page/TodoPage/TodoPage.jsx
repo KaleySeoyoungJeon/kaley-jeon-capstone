@@ -116,12 +116,12 @@ function TodoPage() {
                             <br />
                             {currentTime.split('\n')[1]}
                         </p>
-                        <p className="workoutBoard__card-bottom--text">
+                        <div className="workoutBoard__card-bottom--text">
                             <p className="quote-label">
                                 Quote of the day:
                             </p>
                             {randomQuote}
-                        </p>
+                        </div>
                     </div>
                 </div>
                     <TodoWrapper selectedTarget={displayText} />
